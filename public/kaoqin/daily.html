@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Webnav">
+    <meta name="author" content="Zhengyaing">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SDA北京维修基地</title>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/dashboard.css" rel="stylesheet">
+    <!--<script src="javascripts/persons.js"></script>-->
+    <script src="javascripts/wilddog1.js"></script>
+    <script src="javascripts/vue.js"></script>
+    <script src="wildvue.js "></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-default  navbar-fixed-top">
+       <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SDA北京维修基地</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <!-- baidu -->
+          <form action="http://www.baidu.com/baidu" class="navbar-form navbar-left" target="_blank">
+            <div class="form-group">
+              <input class="form-control" name=tn type=hidden value=baidu>
+            </div>
+            <input type="text" class="form-control"  name="word"  size=20>
+            <input type="submit"  class="btn btn-primary" value="百度一下"></td></tr></table>
+          </form><!-- baidu -->
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://www.bing.com/"  target="_blank">Bing</a></li>
+            <li><a href="http://www.google.com/"  target="_blank">Google</a></li>
+            <li><a href="http://www.baidu.com/gaoji/advanced.html" target="_blank">百度高级搜索</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+
+            <li><a href="attendance.html">个人考勤记录</a></li>
+            <li class="active"><a href="daily.html">每日考勤记录</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div id="app">
+          <div class="panel panel-info">
+          <div class="panel-heading">每日考勤结果
+            <button  class="btn btn-info" v-on:click="dailyData()">
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </button>
+            
+          </div> 
+            <table class="table" v-if="dailyTable"> 
+              <thead> 
+                <tr> 
+                  <th>日期</th> 
+                  <th>上班类型</th>
+                  <th>应上班人员</th> 
+                  <th>员工号</th>
+                  <th>签到时间</th> 
+                  <th>签到状况</th> 
+                </tr> 
+              </thead> 
+              <tbody> 
+                <tr v-for = "day in days" >
+                  <td scope="row" >{{day.dateString}}</td>
+                  <td ><p v-for = "person in day" v-if="person.todayType">{{person.todayTypeName}}</p></td>
+                  <td ><p v-for = "person in day" v-if="person.todayType">{{person.name}}</p></td>
+                  <td ><p v-for = "person in day" v-if="person.todayType">{{person.NO}}</p></td>
+                  <td ><p v-for = "person in day" v-if="person.todayType">{{person.todayTime}}</p></td>
+                  <td ><p v-for = "person in day" v-if="person.todayType">{{person.todayCheckedName}}</p></td>
+                </tr>
+              </tbody> 
+            </table> 
+          </div>
+     
+      </div><!--app-->
+    </div><!--main-->
+    <!--by zhengyaing http://wangzhengya.com/-->
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script>
+      var personsID = ["3361", "3364", "3378", "3381", "3405", "3475", "3485", "3487", "3551", "3583", "3594", "3611", "3620", "5883", "7072", "7086", "7087", "7090", "7113", "7125", "7126", "7398", "7399", "10000", "11300", "11312", "12208", "12341", "12344", "12346", "12356", "12357", "12358", "12359", "13561", "13562", "13563", "13564", "13565", "13566", "13567"];
+      var personsData = '';
+      var daysData = [];
+      function compare(v1,v2){
+        return v1.todayType-v2.todayType;
+      }
+      var config = {
+        authDomain: "sda-foc.wilddog.com",
+        syncURL: "https://sda-foc.wilddogio.com/-KQB7226LnMrob3j9Enu/"
+      };
+      wilddog.initializeApp(config);
+      var itemsRef = wilddog.sync().ref();
+
+      itemsRef.on('value', function(snapshot) {
+        //datas = JSON.stringify(snapshot.val());
+        vm.persons = snapshot.val();
+        console.log("从wilddog读取数据成功")
+      });
+      /* global Vue, Wilddog */
+      //var itemsRef = new Wilddog('https://sda-foc.wilddogio.com/-KQB7226LnMrob3j9Enu/');
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          newName:'',
+          newNO:'',
+          newTeamNO:'',
+          newCate:'',
+          editKey:'',
+          persons:'',
+          personalTable :false,
+          dailyTable :false,
+          days:'',
+        },
+        // wilddog: {
+        //   persons:itemsRef.orderByChild("teamNO"),
+        // },
+        methods: {
+          dailyData:function(){
+            this.personalTable = false;
+            this.dailyTable = true;
+            personsData = this.persons;
+            let personsArray = [];
+            let i = 0;
+            personsID.forEach(function(item,index,array){
+              personsArray[i] = personsData[item];
+              i++;
+            });
+            personsData = personsArray
+            console.log("转换为本地对象数组");
+            personsData.forEach(function(item,index,array){//进入每个人的循环
+              let emptyMonth = {};
+              for(let i = 1;i<31;i++){
+                emptyMonth[i]={
+                  date:i,
+                  typeOfWork : false,
+                  typeName : "无",
+                  checked : false,
+                  checkedName : "无需签到",
+                  time : "无需签到",
+                };
+              }
+              if(item.days){
+                item.days.days=emptyMonth;
+              }else{
+                item.days = {};
+                item.days.days = emptyMonth;
+              }//将所有天设置成null
+              item.workDays.forEach(function(day,ind,arr){//进入白班循环
+                //这天应该上白班
+                if(item.days.days[day]){//初始设置白班
+                  item.days.days[day].typeOfWork = "day";
+                  item.days.days[day].typeName = "白班";
+                  item.days.days[day].checked = false;
+                  item.days.days[day].checkedName = "未签到";
+                  item.days.days[day].time = "没有相关记录";
+                  if(item.days.records){//如果记录数组存在，对数组进行迭代
+                    item.days.records.forEach(function(record,ri,rarr){
+                      let timeRecord = new Date(record);
+                      if ( day == timeRecord.getDate()){//如果记录日期与白班日期相同，添加进对象，进行判定
+                        let hourRecord = timeRecord.getHours();
+                        if(hourRecord>=7 && hourRecord <=19){//白班判定条件
+                          item.days.days[day].time = record;
+                          item.days.days[day].checked = true;
+                          item.days.days[day].checkedName = "已签到";
+                        }
+                      }
+                    });
+                  }
+                }
+
+              });//结束白班循环
+              item.workNights.forEach(function(day,ind,arr){//进入夜班循环
+                //这天应该上夜班
+                if(item.days.days[day]){//初始设置夜班
+                  item.days.days[day].typeOfWork = "night";
+                  item.days.days[day].typeName = "夜班";
+                  item.days.days[day].checked = false;
+                  item.days.days[day].checkedName = "未签到";
+                  item.days.days[day].time = "没有相关记录";
+                  if(item.days.records){//如果记录数组存在，对数组进行迭代
+                    item.days.records.forEach(function(record,ri,rarr){
+                      let timeRecord = new Date(record);
+                      if ( day == timeRecord.getDate()){//如果记录日期与夜班日期相同，添加进对象，进行判定
+                        let hourRecord = timeRecord.getHours();
+                        if(hourRecord>=19){//夜班当晚判定条件
+                          item.days.days[day].time = record;
+                          item.days.days[day].checked = true;
+                          item.days.days[day].checkedName = "已签到";
+                        }
+                      }
+                      if ( day == timeRecord.getDate()-1){//如果记录日期比夜班日期多一天，添加进对象，进行判定
+                        
+                        let hourRecord = timeRecord.getHours();
+                        if(hourRecord <=8){//夜班第二天判定条件
+                          item.days.days[day].time = record;
+                          item.days.days[day].checked = true;
+                          item.days.days[day].checkedName = "已签到";
+                        }
+                      }
+                    });
+                  }
+                }
+
+              });//结束夜班循环
+              //console.log(item.name);
+            });//结束每个人的循环
+            console.log(personsData);
+            for(let i = 1;i<31;i++){
+              daysData[i]=[];
+              daysData[i].date = i;
+              daysData[i].dateString = "9月"+i+"日";
+              personsData.forEach(function(item,index,array){
+                daysData[i].push({
+                  NO:item.NO,
+                  name:item.name,
+                  todayType:item.days.days[i].typeOfWork,
+                  todayTypeName:item.days.days[i].typeName,
+                  todayTime:item.days.days[i].time,
+                  todayChecked:item.days.days[i].checked,
+                  todayCheckedName:item.days.days[i].checkedName,
+                  today:item.days.days[i].date,
+                });
+              });
+              daysData[i].sort(compare);
+            }
+            console.log(daysData);
+            this.days = daysData;
+          },
+        }
+      })
+    </script>
+  </body>
+</html>

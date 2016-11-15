@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Webnav">
+    <meta name="author" content="Zhengyaing">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Zhengyaing自用网址导航</title>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/dashboard.css" rel="stylesheet">
+    <script src="javascripts/wilddog-sync.js"></script>
+    <script src="javascripts/vue.js"></script>
+
+  </head>
+  <body>
+      <nav class="navbar navbar-default  navbar-fixed-top">
+       <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Zhengyaing</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <!-- baidu -->
+          <form action="http://www.baidu.com/baidu" class="navbar-form navbar-left" target="_blank">
+            <div class="form-group">
+              <input class="form-control" name=tn type=hidden value=baidu>
+            </div>
+            <input type="text" class="form-control"  name="word"  size=20>
+            <input type="submit"  class="btn btn-primary" value="百度一下"></td></tr></table>
+          </form><!-- baidu -->
+          
+          </ul>
+          
+          <ul class="nav navbar-nav navbar-right">
+            <button class="btn btn-success btn-lg " data-toggle="modal" data-target="#myModal">
+             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+            <li><a href="http://www.bing.com/"  target="_blank">Bing</a></li>
+            <li><a href="http://www.google.com/"  target="_blank">Google</a></li>
+            <li><a href="http://www.baidu.com/gaoji/advanced.html" target="_blank">百度高级搜索</a></li>
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+      </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="index.html">常用链接</a></li>
+            <li><a href="#">办公网址</a></li>
+            <li><a href="#frame">前端框架</a></li>
+            <li><a href="#fe">前端网站</a></li>
+            <li><a href="#office">办公</a></li>
+            <li><a href="life.html">生活娱乐</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div id="app" >
+
+        <div v-for = "group in links" id={{group.name}} class="col-sm-12 col-md-12">
+          <hr />
+          <h2>{{group.name}}</h2>
+          <div v-for = "link in group" v-if="link.href" class="col-xs-6 col-sm-4 col-lg-2 placeholder">
+            <a href={{link.href}} target="_blank" class="btn btn-{{link.color}}" v-on:click="clickLink(link.type,link.key,link.count)">
+              <span class="glyphicon " aria-hidden="true"></span>{{link.name}}<span class="badge">{{0-link.count}}</span></a>
+          </div> 
+          
+        </div>
+
+      <!-- 模态框（Modal） -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" 
+                    data-dismiss="modal" aria-hidden="true">
+                        &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                    添加新的链接
+                  </h4>
+              </div>
+              <div class="modal-body"><form>
+                  <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">Key</label>
+                    <div class="col-sm-9"><input placeholder="存储用的key" v-model="newLinkKey" class="form-control" type="text"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">网站名称</label>
+                    <div class="col-sm-9"><input placeholder="网站名称" v-model="newLinkName" class="form-control" type="text"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">网站地址</label>
+                    <div class="col-sm-9"><input placeholder="http://...." v-model="newLinkHref" class="form-control" type="text"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">类别</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" v-model="newType">
+                        <option value="fe" selected="selected">前端技术</option>
+                        <option value="ferelated">FE周边</option>
+                        <option value="learn">学习</option>
+                        <option value="github">Github</option>
+                        <option value="tech">技术</option>
+                        <option value="work">工作效率</option>
+                        <option value="resource">资源</option>
+                        <option value="life">生活娱乐</option>
+                        <option value="other">其他</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">颜色</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" v-model="newColor">
+                        <option value="default" selected="selected">Default</option>
+                        <option value="primary">Primary</option>
+                        <option value="success">Success</option>
+                        <option value="info">Info</option>
+                        <option value="warning">Warning</option>
+                        <option value="danger">Danger</option>
+                      </select>
+                    </div>
+                  </div> 
+                </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                  <button  class="btn btn-success" v-on:click="addNewLink()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  </button>
+              </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+      </div>   
+    </div>
+  </div>    
+  </div>
+
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script>
+      var config = {
+        authDomain: "sda-foc.wilddog.com",
+        syncURL: "https://sda-foc.wilddogio.com/links/"
+      };
+      wilddog.initializeApp(config);
+      var itemsRef = wilddog.sync().ref();
+
+      itemsRef.on('value', function(snapshot) {
+        //datas = JSON.stringify(snapshot.val());
+        vm.links =snapshot.val();
+      });
+      /* global Vue, Wilddog */
+      //var itemsRef = new Wilddog('https://sda-foc.wilddogio.com/links/');
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          newLinkKey:'',
+          newLinkName:'',
+          newLinkHref:'',
+          newType:'',
+          newColor:'',
+          links: '',
+        },
+        methods: {
+          clickLink:function(group,key,num){
+            itemsRef.child(group+"/"+key).update({
+              count:num-1
+            });
+          },
+          addNewLink:function(){
+            itemsRef.child(this.newType+"/"+this.newLinkKey).set({
+                key:this.newLinkKey,
+                name:this.newLinkName,
+                href:this.newLinkHref,
+                type:this.newType,
+                color:this.newColor,
+                count:0,
+            });
+            this.newLinkHref = "";
+            this.newLinkName = "";
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

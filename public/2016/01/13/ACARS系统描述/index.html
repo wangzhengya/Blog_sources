@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta name="baidu-site-verification" content="61pFxOu9GP"><meta content="telephone=no" name="format-detection"><meta name="description" content="帅机务的博客"><title>ACARS系统描述 | Zhengyaing的博客</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="../../../../css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="../../../../favicon.ico"><link rel="apple-touch-icon" href="../../../../apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="../../../../apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">ACARS系统描述</h1><a id="logo" href="../../../../.">Zhengyaing的博客</a><p class="description">Zhengyaing的各种小总结</p></div><div id="nav-menu"><a href="../../../../." class="current"><i class="fa fa-home"> 首页</i></a><a href="../../../../archives/"><i class="fa fa-archive"> 归档</i></a><a href="../../../../aboutMe/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">ACARS系统描述</h1><div class="post-meta">Jan 13, 2016<span> | </span><span class="category"><a href="../../../../categories/机务/">机务</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><p>ACARS是一种用于传输信息和报文的数据连接通信系统。</p>
+<ul>
+<li><p>下传链接：从飞机发往地面站的信息和报文。</p>
+</li>
+<li><p>上传链接：从地面站发往飞机的信息和报文。<br><img src="./images/ACARS_1.png" alt=""></p>
+</li>
+</ul>
+<p>报文的内容为：</p>
+<ul>
+<li>机组身份信息</li>
+<li>Out,off,on,in（OOOI）时间</li>
+<li>发动机性能</li>
+<li>飞行状态</li>
+<li>维护项目信息</li>
+<li>ACARS_1</li>
+</ul>
+<h2 id="系统组成"><a href="#系统组成" class="headerlink" title="系统组成"></a>系统组成</h2><p>ACARS有以下组件：</p>
+<h4 id="飞机信息组件（APM）E4-1架，CMU后方"><a href="#飞机信息组件（APM）E4-1架，CMU后方" class="headerlink" title="飞机信息组件（APM）E4-1架，CMU后方"></a>飞机信息组件（APM）E4-1架，CMU后方</h4><p>当CMU得电后，内存为CMU提供飞机身份号和注册号。</p>
+<p>可以通过CDU更改飞机的身份信息和注册号。</p>
+<p><img src="./images/ACARS_2.png" alt=""></p>
+<h4 id="通信管理组件（CMU）E4-1架"><a href="#通信管理组件（CMU）E4-1架" class="headerlink" title="通信管理组件（CMU）E4-1架"></a>通信管理组件（CMU）E4-1架</h4><p>通过VHF或者HF接受地面传来的数字信息（上传链接）和控制空中到地面的信息的发送（下传链接）</p>
+<h6 id="电源："><a href="#电源：" class="headerlink" title="电源："></a>电源：</h6><p>从转换汇流条1获得115V交流电</p>
+<p>从热电瓶汇流条获得28V直流电</p>
+<h6 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h6><ul>
+<li>监控输入信号</li>
+<li>格式化下传消息</li>
+<li>监控上传和下传数据，确保正确</li>
+<li>解码上传的消息</li>
+<li>控制运行模式</li>
+<li>控制数据发送</li>
+<li>给予认可或不认可应答</li>
+<li>调谐控制VHF无线电</li>
+<li>给打印机数据</li>
+<li>控制系统运行</li>
+<li>给SC-A提供显示在乘客显示屏或机组面板的数据消息</li>
+<li>CMU只处理接受的带有飞机注册号的消息，且在发送时会给下传数据带上飞机注册号。</li>
+</ul>
+<p><img src="./images/ACARS_3.png" alt=""></p>
+<h6 id="自检："><a href="#自检：" class="headerlink" title="自检："></a>自检：</h6><ul>
+<li>SHG 018-033, 037, 038, 040, 042, 043, 053, 054, 068-073:</li>
+</ul>
+<p>前面板上Test按钮会使CMU开始进行BITE自检。</p>
+<p>SYSTEM FAIL LED灯亮表示ACARS系统失效</p>
+<p>用一个细长金属杆，通过RESET小孔按压RESET按钮，会是CMU做一个上电测试。</p>
+<ul>
+<li>SHG 001-017, 034-036, 039, 041, 044-049, 051, 052, 055-066, 074-081,701-999：</li>
+</ul>
+<p>按压手柄下方的RESET按钮做一个上电测试。当按压按钮时，所有LED灯亮。</p>
+<table>
+<thead>
+<tr>
+<th>指示灯</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MU PASS（绿）</td>
+<td>CMU通过冷启动测试</td>
+</tr>
+<tr>
+<td>HW FAIL（红）</td>
+<td>检测到一个CMU故障</td>
+</tr>
+<tr>
+<td>LOAD SW（黄）</td>
+<td>需要给CMU加载软件</td>
+</tr>
+<tr>
+<td>XFER BUSY（黄）</td>
+<td>CMU正在从数据盘或数据装载控制面板加载数据</td>
+</tr>
+<tr>
+<td>XFER COMP（绿）</td>
+<td>数据加载成功</td>
+</tr>
+<tr>
+<td>XFER FAIL（红）</td>
+<td>在数据加载过程中自检检测到一个故障</td>
+</tr>
+<tr>
+<td>APM FAIL（红）</td>
+<td>APM失效</td>
+</tr>
+</tbody>
+</table>
+<h4 id="控制显示组件（CDU）"><a href="#控制显示组件（CDU）" class="headerlink" title="控制显示组件（CDU）"></a>控制显示组件（CDU）</h4><p>控制ACARS的运行并显示ACARS信息</p>
+<h4 id="多功能交互显示组件（MIDU）"><a href="#多功能交互显示组件（MIDU）" class="headerlink" title="多功能交互显示组件（MIDU）"></a>多功能交互显示组件（MIDU）</h4><p>控制ACARS的运行</p>
+<p><img src="./images/ACARS_4.png" alt=""></p>
+<p>其他系统组件：</p>
+<p><strong> 打印机</strong>：</p>
+<p>打印ACARS报文和消息</p>
+<p><strong> PSEU </strong> ：</p>
+<p>提供OOOI事件的离散信号</p>
+<p><strong> Remote electronics unit（REU）：</strong></p>
+<p>分配调谐音提示和灯光提示信号</p>
+<p><strong> VHF收发机：</strong></p>
+<p>发送数据或者从地面站接受数据</p>
+<p><strong> 音频控制面板（ACP）：</strong></p>
+<p>当ACARS消息需要机组关注时，给机组提醒</p>
+<p><strong>SELCAL 控制面板：</strong></p>
+<p>提醒机组有需要关注的ACARS消息</p>
+<p><strong>HF 收发机和Satellite data unit (SDU)</strong></p>
+<p>发送数据或者从地面站接受数据</p>
+<p><strong> 数据加载控制面板 </strong></p>
+<p><strong> FMC </strong></p>
+<h2 id="系统接口"><a href="#系统接口" class="headerlink" title="系统接口"></a>系统接口</h2><h4 id="通信接口"><a href="#通信接口" class="headerlink" title="通信接口"></a>通信接口</h4><p>######Call interface</p>
+<p>上传链接的消息会告诉机组一个ACARS消息。当消息到达后，CMU给出提示：<br>音响警告组件的谐音<br>SELCAL控制面板VHF3灯亮或者ACP面板上VHF3呼叫灯亮</p>
+<h6 id="VHF通信接口"><a href="#VHF通信接口" class="headerlink" title="VHF通信接口"></a>VHF通信接口</h6><p>CMU发送到VHF3收发机或从VHF3接收所有数据连接，被ARINC429总线控制。<br>调谐VHF收发机的频率<br>给VHF收发机的下传链接消息<br>从VHF收发机接受的上传链接消息</p>
+<h6 id="HF通信接口"><a href="#HF通信接口" class="headerlink" title="HF通信接口"></a>HF通信接口</h6><p>ARINC429消息，仅用于上传链接和下传链接消息</p>
+<p>HF数据无线电收发机。设置在data模式，自动建立与地面站的链接。</p>
+<h2 id="离散信号接口"><a href="#离散信号接口" class="headerlink" title="离散信号接口"></a>离散信号接口</h2><h4 id="PSEU"><a href="#PSEU" class="headerlink" title="PSEU"></a>PSEU</h4><p>CMU从PSEU获取离散信号来决定OOOI时间。然后ACARS发送关于OOOI时间的准备报文。离散信号来自以下组件：</p>
+<ul>
+<li>空地传感器</li>
+<li>停留刹车</li>
+<li>电子舱门</li>
+<li>前后货舱门，勤务门，登机门</li>
+</ul>
+<h4 id="APM"><a href="#APM" class="headerlink" title="APM"></a>APM</h4><p>APM从CMU获得电源，APM给CMU提供注册号和飞机认证号。</p>
+<h2 id="数字信号接口"><a href="#数字信号接口" class="headerlink" title="数字信号接口"></a>数字信号接口</h2><p>输入：</p>
+<ul>
+<li>CDU的数据输入和菜单选择</li>
+<li>打印机的状态</li>
+<li>FDAU的下传链接报文数据</li>
+<li>数据加载控制面板的软件加载信息</li>
+<li>FMCS的航线和航班数据</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>给打印机的报文数据</li>
+<li>给CDU的数据和菜单选项以及给scratch pad 的警告消息</li>
+<li>给FMC的航线和航班数据上传链接</li>
+<li>给FDAU的报文请求上传链接</li>
+<li>给数据装载控制面板的状态信息</li>
+</ul>
+<p><img src="./images/ACARS_5.png" alt=""></p>
+</div><div class="tags"><a href="../../../../tags/ACARS/">ACARS</a><a href="../../../../tags/SDS34/">SDS34</a></div><div class="post-nav"><a href="../../../09/11/Hexo搭建博客/" class="pre">Hexo 搭建运行在github.io上的博客</a><a href="../../../../2015/12/09/gitGuide/" class="next">git使用指南</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/机务/">机务</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="../../../../tags/对象/" style="font-size: 15px;">对象</a> <a href="../../../../tags/ACARS/" style="font-size: 15px;">ACARS</a> <a href="../../../../tags/B737-800/" style="font-size: 15px;">B737-800</a> <a href="../../../../tags/APU/" style="font-size: 15px;">APU</a> <a href="../../../../tags/雷达/" style="font-size: 15px;">雷达</a> <a href="../../../../tags/CVR/" style="font-size: 15px;">CVR</a> <a href="../../../../tags/SDS23/" style="font-size: 15px;">SDS23</a> <a href="../../../../tags/hexo/" style="font-size: 15px;">hexo</a> <a href="../../../../tags/博客/" style="font-size: 15px;">博客</a> <a href="../../../../tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="../../../../tags/SDS34/" style="font-size: 15px;">SDS34</a> <a href="../../../../tags/模式/" style="font-size: 15px;">模式</a> <a href="../../../../tags/机务/" style="font-size: 15px;">机务</a> <a href="../../../../tags/B737/" style="font-size: 15px;">B737</a> <a href="../../../../tags/FDR/" style="font-size: 15px;">FDR</a> <a href="../../../../tags/飞行记录器/" style="font-size: 15px;">飞行记录器</a> <a href="../../../../tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="../../../../tags/express/" style="font-size: 15px;">express</a> <a href="../../../../tags/github/" style="font-size: 15px;">github</a> <a href="../../../../tags/飞机/" style="font-size: 15px;">飞机</a> <a href="../../../../tags/鸟击/" style="font-size: 15px;">鸟击</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../11/07/OFF灯亮故障处置方法的维修提示/">FDR OFF灯亮故障处置方法的维修提示击</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/05/飞机突发状况之鸟击/">飞机突发状况之鸟击</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/05/Javascript创建对象的模式/">Javascript创建对象的模式</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/01/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="../../../09/19/Node-js-Express-set-up/">Node.js Express set up</a></li><li class="post-list-item"><a class="post-list-link" href="../../../09/12/B737-800雷达系统/">B737-800雷达系统概述</a></li><li class="post-list-item"><a class="post-list-link" href="../../../09/11/Hexo搭建博客/">Hexo 搭建运行在github.io上的博客</a></li><li class="post-list-item"><a class="post-list-link" href="">ACARS系统描述</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../2015/12/09/gitGuide/">git使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../2015/11/04/B737800-CVR/">波音737飞机的语音记录器</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://zhengyaing.win/web/" title="zhengyaing自用导航" target="_blank">zhengyaing自用导航</a><ul></ul><a href="http://zhengyaing.win/kaoqin/index.html" title="山东航空考勤数据结果" target="_blank">山东航空考勤数据结果</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="../../../../." rel="nofollow">Zhengyaing的博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="../../../../js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="../../../../js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="../../../../css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="../../../../js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="../../../../js/smartresize.js?v=0.0.0"></script></div></body></html>

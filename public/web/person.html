@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Webnav">
+    <meta name="author" content="Zhengyaing">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SDA北京维修基地</title>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/dashboard.css" rel="stylesheet">
+    <!--<script src="javascripts/persons.js"></script>-->
+    <script src="javascripts/wilddog.js"></script>
+    <script src="javascripts/vue.js"></script>
+    <script src="wildvue.js "></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-default  navbar-fixed-top">
+       <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SDA北京维修基地</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <!-- baidu -->
+          <form action="http://www.baidu.com/baidu" class="navbar-form navbar-left" target="_blank">
+            <div class="form-group">
+              <input class="form-control" name=tn type=hidden value=baidu>
+            </div>
+            <input type="text" class="form-control"  name="word"  size=20>
+            <input type="submit"  class="btn btn-primary" value="百度一下"></td></tr></table>
+          </form><!-- baidu -->
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://www.bing.com/"  target="_blank">Bing</a></li>
+            <li><a href="http://www.google.com/"  target="_blank">Google</a></li>
+            <li><a href="http://www.baidu.com/gaoji/advanced.html" target="_blank">百度高级搜索</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="person.html">人员管理</a></li>
+            <li><a href="workday.html">上班管理</a></li>
+            <li><a href="attendance.html">考勤记录</a></li>
+            <li><a href="teamWorkDay.html">分队上班时间管理</a></li>
+            <li><a href="input.html">加载考勤机数据</a></li>
+            <li><a href="#office">办公</a></li>
+            <li><a href="#life">生活娱乐</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div id="app">
+        <div class="panel panel-success">
+          <div class="panel-heading">人员管理页面</div> 
+            <table class="table"> 
+              <thead> 
+                <tr> 
+                  <th>姓名</th> 
+                  <th>员工号</th>
+                  <th>分队</th> 
+                  <th>工作类型</th> 
+                  
+                  <!--<th>授权管理</th> -->
+                  <th>管理</th>
+                </tr> 
+              </thead> 
+              <tbody> 
+                <tr v-for = "person in persons" >
+                  <td scope="row" >{{person.name}}</td>
+                  <td>{{person.NO}}</td>
+                  <td>{{person.teamNO}}</td>
+                  <td>{{person.cate}}</td>
+                  <!--<td>{{person.auth}}</td>-->
+                  <td >
+                    <button class="btn btn-info btn-sm" @click="editPerson(person['.key'],person)" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+                    <button class="btn btn-danger btn-sm" @click="removePerson(person['.key'])"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                  </td>
+                </tr>
+              </tbody> 
+            </table> 
+          </div>
+     
+        <ul class="nav nav-pills navbar-right" role="tablist">
+          <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+             <span class="glyphicon glyphicon-plus" aria-hidden="true">增加人员</span>
+          </button>
+       </ul>
+
+        <!-- 增加航班计划模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+           aria-labelledby="myModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+              <div class="modal-content">
+                 <div class="modal-header">
+                    <button type="button" class="close" 
+                       data-dismiss="modal" aria-hidden="true">
+                          &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                       添加新的人员
+                    </h4>
+                 </div>
+                 <div class="modal-body"><form>
+                   <div class="form-group">
+                      <label for="lastname" class="col-sm-3 control-label">姓名</label>
+                      <div class="col-sm-9"><input placeholder="" v-model="newName" class="form-control" type="text"></div>
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname" class="col-sm-3 control-label">员工号</label>
+                      <div class="col-sm-9"><input placeholder="6位数字" v-model="newNO" class="form-control" type="text"></div>
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname" class="col-sm-3 control-label">所属分队</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" v-model="newTeamNO">
+                          <option value="0">其他</option>
+                          <option value="1">一</option>
+                          <option value="2">二</option>
+                          <option value="3">三</option>
+                          <option value="4">四</option>
+                          <option value="5">五</option>
+                          <option value="6">六</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname" class="col-sm-3 control-label">专业</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" v-model="newCate">
+                          <option value="ME">机械</option>
+                          <option value="AV">电子</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname" class="col-sm-3 control-label">授权</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" v-model="newAuth">
+                          <option value="一类">一类</option>
+                          <option value="二类">二类</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!--<div class="form-group">
+                      <div class="alert alert-info" role="alert">
+                          <input type="checkbox" v-model="newIsTing" id="cbox" aria-label="..."><label for="cbox" >配艇</label>
+                          <input type="checkbox" v-model="newIsFinished" id="cfinish" aria-label="..."><label for="cfinish" >完工</label>
+                      </div>
+                    </div>-->
+                  </div>
+
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-default" 
+                       data-dismiss="modal">关闭
+                    </button>
+                    <button  class="btn btn-success" v-on:click="addNewPerson()" title="添加数据">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"> 添加</span>
+                    </button>
+                    <button  class="btn btn-info" v-on:click="updatePerson()" title="更新数据">
+                        <span class="glyphicon glyphicon-random" aria-hidden="true"> 更改</span>
+                    </button>
+                 </div>
+              </div><!-- /.modal-content -->
+          </div>
+        </div><!-- /.modal -->
+        
+        
+      </div><!--app-->
+    </div><!--main-->
+    <!--by zhengyaing http://wangzhengya.com/-->
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script>
+      /* global Vue, Wilddog */
+      var itemsRef = new Wilddog('https://sda-foc.wilddogio.com/-KQB7226LnMrob3j9Enu/');
+
+      new Vue({
+        el: '#app',
+        data: {
+          newName:'',
+          newNO:'',
+          newTeamNO:'',
+          newCate:'',
+          editKey:'',
+        },
+        wilddog: {
+          persons:itemsRef.orderByChild("teamNO"),
+        },
+        methods: {
+          removePerson: function (key) {
+            itemsRef.child(key).remove()
+          },
+          addNewPerson:function(){
+            itemsRef.push({
+              name:this.newName,
+              NO:this.newNO,
+              teamNO:this.newTeamNO,
+              cate:this.newCate,
+              auth:this.newAuth,
+            });
+            this.newName = "";
+            this.newNO="";
+            this.newTeamNO = "";
+            this.newCate = "";
+            this.newAuth = "";
+          },
+          editPerson:function(key,person){
+            this.newName = person.name;
+            this.newNO = person.NO ;
+            this.newTeamNO = person.teamNO;
+            this.newCate = person.cate;
+            this.newAuth = person.auth;
+            this.editKey = key;
+          },
+          updatePerson:function(){
+            itemsRef.child(this.editKey).update({
+              name:this.newName,
+              NO:this.newNO,
+              teamNO:this.newTeamNO,
+              cate:this.newCate,
+              auth:this.newAuth,
+            });
+            this.newName = "";
+            this.newNO="";
+            this.newTeamNO = "";
+            this.newCate = "";
+            this.newAuth = "";
+          },
+        }
+      })
+    </script>
+  </body>
+</html>
