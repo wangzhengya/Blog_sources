@@ -3,8 +3,11 @@
 git clone https://github.com/wangzhengya/Blog_sources.git
 
 ## 初始化
+
     ``` bash
     $ npm install
+    $ npm install -g cnpm --registry=https://registry.npm.taobao.org
+    $ npm install -g hexo-cli
     ```
     
 ## new
