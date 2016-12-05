@@ -1,7 +1,12 @@
 ## 这是zhengyaing.win博客的hexo源码。
 
-git clone:https://github.com/wangzhengya/Blog_sources.git
+git clone https://github.com/wangzhengya/Blog_sources.git
 
+## 初始化
+    ``` bash
+    $ npm install
+    ```
+    
 ## new
 创建一个新的文章，执行下列命令
     ``` bash
@@ -11,7 +16,6 @@ git clone:https://github.com/wangzhengya/Blog_sources.git
     ``` bash
     $ sudo chmod -R 777 blog/
     ```
-    
 
 ## generate
 生成静态文件，执行下列命令：
