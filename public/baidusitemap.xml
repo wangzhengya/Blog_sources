@@ -4,8 +4,166 @@
 
     
   <url>
+    <loc>http://zhengyaing.win/2016/12/17/%E5%AE%A2%E8%88%B1%E5%91%BC%E5%8F%AB%E9%93%83%E5%A3%B0%E6%95%85%E9%9A%9C/</loc>
+    <lastmod>2016-12-17T07:34:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>客舱呼叫铃声故障</title>
+        <pubTime>2016-12-17T07:05:57.000Z</pubTime>
+        
+        <tag>机务</tag>
+         
+        <tag>B737</tag>
+         
+        <tag>飞机</tag>
+         
+         
+           
+             
+              <breadCrumb title="机务" url="http://zhengyaing.win/categories/%E6%9C%BA%E5%8A%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhengyaing.win/2016/09/19/Node-js-Express-set-up/</loc>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>Node.js Express set up</title>
+        <pubTime>2016-09-19T01:53:29.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>express</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://zhengyaing.win/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhengyaing.win/2016/09/12/B737-800%E9%9B%B7%E8%BE%BE%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>B737-800雷达系统概述</title>
+        <pubTime>2016-09-12T12:35:46.000Z</pubTime>
+        
+        <tag>SDS34</tag>
+         
+        <tag>雷达</tag>
+         
+         
+           
+             
+              <breadCrumb title="机务" url="http://zhengyaing.win/categories/%E6%9C%BA%E5%8A%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhengyaing.win/2015/11/04/B737800-CVR/</loc>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>波音737飞机的语音记录器</title>
+        <pubTime>2015-11-04T07:10:38.000Z</pubTime>
+        
+        <tag>CVR</tag>
+         
+        <tag>SDS23</tag>
+         
+         
+           
+             
+              <breadCrumb title="机务" url="http://zhengyaing.win/categories/%E6%9C%BA%E5%8A%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhengyaing.win/2016/09/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo 搭建运行在github.io上的博客</title>
+        <pubTime>2016-09-11T04:40:30.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>博客</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://zhengyaing.win/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhengyaing.win/2016/10/05/Javascript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>Javascript创建对象的模式</title>
+        <pubTime>2016-10-05T02:33:49.000Z</pubTime>
+        
+        <tag>Javascript</tag>
+         
+        <tag>对象</tag>
+         
+        <tag>模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://zhengyaing.win/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhengyaing.win/2015/05/20/B737-800%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B/</loc>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>B737-800启动过程</title>
+        <pubTime>2015-05-20T07:27:35.000Z</pubTime>
+        
+        <tag>B737-800</tag>
+         
+        <tag>APU</tag>
+         
+         
+           
+             
+              <breadCrumb title="机务" url="http://zhengyaing.win/categories/%E6%9C%BA%E5%8A%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhengyaing.win/2016/11/07/OFF%E7%81%AF%E4%BA%AE%E6%95%85%E9%9A%9C%E5%A4%84%E7%BD%AE%E6%96%B9%E6%B3%95%E7%9A%84%E7%BB%B4%E4%BF%AE%E6%8F%90%E7%A4%BA/</loc>
-    <lastmod>2016-11-07T01:51:10.887Z</lastmod>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
     <data>
         <display>
         <title>FDR OFF灯亮故障处置方法的维修提示击</title>
@@ -30,161 +188,8 @@
 
     
   <url>
-    <loc>http://zhengyaing.win/2016/09/12/B737-800%E9%9B%B7%E8%BE%BE%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2016-11-07T01:43:47.660Z</lastmod>
-    <data>
-        <display>
-        <title>B737-800雷达系统概述</title>
-        <pubTime>2016-09-12T12:35:46.000Z</pubTime>
-        
-        <tag>SDS34</tag>
-         
-        <tag>雷达</tag>
-         
-         
-           
-             
-              <breadCrumb title="机务" url="http://zhengyaing.win/categories/%E6%9C%BA%E5%8A%A1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhengyaing.win/2016/09/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2016-11-07T01:39:09.495Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo 搭建运行在github.io上的博客</title>
-        <pubTime>2016-09-11T04:40:30.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://zhengyaing.win/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhengyaing.win/2016/10/05/%E9%A3%9E%E6%9C%BA%E7%AA%81%E5%8F%91%E7%8A%B6%E5%86%B5%E4%B9%8B%E9%B8%9F%E5%87%BB/</loc>
-    <lastmod>2016-10-05T12:26:13.363Z</lastmod>
-    <data>
-        <display>
-        <title>飞机突发状况之鸟击</title>
-        <pubTime>2016-10-05T12:11:21.000Z</pubTime>
-        
-        <tag>机务</tag>
-         
-        <tag>B737</tag>
-         
-        <tag>飞机</tag>
-         
-        <tag>鸟击</tag>
-         
-         
-           
-             
-              <breadCrumb title="机务" url="http://zhengyaing.win/categories/%E6%9C%BA%E5%8A%A1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhengyaing.win/2016/10/05/Javascript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2016-10-05T12:09:48.214Z</lastmod>
-    <data>
-        <display>
-        <title>Javascript创建对象的模式</title>
-        <pubTime>2016-10-05T02:33:49.000Z</pubTime>
-        
-        <tag>Javascript</tag>
-         
-        <tag>对象</tag>
-         
-        <tag>模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="http://zhengyaing.win/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhengyaing.win/2016/10/01/hello-world/</loc>
-    <lastmod>2016-10-05T02:44:20.921Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-10-01T02:33:49.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhengyaing.win/2016/09/19/Node-js-Express-set-up/</loc>
-    <lastmod>2016-09-19T02:02:23.694Z</lastmod>
-    <data>
-        <display>
-        <title>Node.js Express set up</title>
-        <pubTime>2016-09-19T01:53:29.000Z</pubTime>
-        
-        <tag>nodejs</tag>
-         
-        <tag>express</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://zhengyaing.win/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhengyaing.win/2015/11/04/B737800-CVR/</loc>
-    <lastmod>2016-09-18T15:01:53.107Z</lastmod>
-    <data>
-        <display>
-        <title>波音737飞机的语音记录器</title>
-        <pubTime>2015-11-04T07:10:38.000Z</pubTime>
-        
-        <tag>CVR</tag>
-         
-        <tag>SDS23</tag>
-         
-         
-           
-             
-              <breadCrumb title="机务" url="http://zhengyaing.win/categories/%E6%9C%BA%E5%8A%A1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://zhengyaing.win/2015/12/09/gitGuide/</loc>
-    <lastmod>2016-09-18T15:01:53.107Z</lastmod>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
     <data>
         <display>
         <title>git使用指南</title>
@@ -203,8 +208,23 @@
 
     
   <url>
+    <loc>http://zhengyaing.win/2016/10/01/hello-world/</loc>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-10-01T02:33:49.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhengyaing.win/2016/01/13/ACARS%E7%B3%BB%E7%BB%9F%E6%8F%8F%E8%BF%B0/</loc>
-    <lastmod>2016-09-18T15:01:53.103Z</lastmod>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
     <data>
         <display>
         <title>ACARS系统描述</title>
@@ -225,16 +245,20 @@
 
     
   <url>
-    <loc>http://zhengyaing.win/2015/05/20/B737-800%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B/</loc>
-    <lastmod>2016-09-18T15:01:53.103Z</lastmod>
+    <loc>http://zhengyaing.win/2016/10/05/%E9%A3%9E%E6%9C%BA%E7%AA%81%E5%8F%91%E7%8A%B6%E5%86%B5%E4%B9%8B%E9%B8%9F%E5%87%BB/</loc>
+    <lastmod>2016-12-17T06:38:47.000Z</lastmod>
     <data>
         <display>
-        <title>B737-800启动过程</title>
-        <pubTime>2015-05-20T07:27:35.000Z</pubTime>
+        <title>飞机突发状况之鸟击</title>
+        <pubTime>2016-10-05T12:11:21.000Z</pubTime>
         
-        <tag>B737-800</tag>
+        <tag>机务</tag>
          
-        <tag>APU</tag>
+        <tag>B737</tag>
+         
+        <tag>飞机</tag>
+         
+        <tag>鸟击</tag>
          
          
            
